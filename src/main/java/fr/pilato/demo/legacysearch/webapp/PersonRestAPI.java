@@ -69,4 +69,10 @@ public class PersonRestAPI {
     public void init(Optional<Integer> size) {
         personService.init(size.or(1000));
     }
+
+    @GET("/_null")
+    @PermitAll
+    public void nullAPI() {
+        throw new NullPointerException("You asked for null? You got it");
+    }
 }
